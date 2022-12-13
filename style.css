@@ -1,3 +1,28 @@
 body {
   background-color: beige;
+  border: 2px solid beige ;
+  margin: 150px
+}
+h1 {
+	font-size: 300%;
+}
+a:link{
+  color: black;
+  text-decoration: none
+}
+
+/* visited link */
+a:visited {
+  color: navy;
+  text-decoration: none
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: underline
+}
+
+/* selected link */
+a:active {
+  color: blue;
 }
