@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+        
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0-rc.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
+<body>    <p>学数学的初心是什么。初中的时候某一个时刻开始不理解数学了。那就是在学到函数 $$ f\colon \R \to \R \space  f(x)=x^2 $$
+        的时候。课本上给出它的图像，但是我不理解为什么它长弯弯的那样。课本上是描离散的点，然后用光滑的曲线连接起来，但怎么确定这样一个光滑的曲线就是 $f(x)=x^2$ 呢？学过数学分析的大概能知道严格的论证是：对于图像 $\Gamma(f)$， 证明对每个$p\in \Gamma(f)$ 都有一个邻域  $B(\epsilon, p)$ 使得 $ p&#39;\in \Gamma(f) \ \forall p \in N(p)$.  （我不知道这个性质叫什么名字, 大概是$f$ 是开映射的一个推论？）</p>
+        <p>高中一个寒假看silverman的 <em>A friendly Introduction to Number theory</em>。 其中说到Wilson&#39;s theorem $$ (p-1)! \equiv 1 \pmod p　.$$ </p>
+        <p> 它的证明，我觉得，难免需要三个部分 </p>
+        <ol>
+        <li>$1,\cdots ,p-1$ 在 $\mod p$ 意义下有逆元。 </li>
+        <li>逆元唯一</li>
+        <li>每个元素和其逆元恰好构成$1,\cdots p-1$ 这 $p-1$ 个元素。</li>
+        </ol>
+        <p>第三点其实不太好说明白，本质上是因为本来就不太好把它用几个好操作的步骤报答出来。这也是一个人们想找其他办法证明这个简单的小定理（比如用群论Frobenius 定理）的原因。 （一个较好接受的说法是 $$ 1\times 2 \times  \cdots \frac{p-1}{2}\cdots p-1 \equiv 1 \cdot 2\cdot 2^{-1} \cdot \cdots \frac{p-1}{2} \cdot (\frac{p-1}{2})^{-1} \equiv 1 \pmod p   $$  这里 $$ {1,\cdots ,p-1 }= {1,2,2^{-1},\cdots , \frac{p-1}{2},(\frac{p-1}{2})^{-1}  }.  $$ 因为右边是左边的一个子集并且有 $p-1$ 个元素。即便我这样写，也已经写省略了很多话。而且交换群上以可以任意顺序运算也值得一个解释，如果完全没有学习过这方面的话。一般地，子集和cardinality和相等又有什么联系呢？）</p>
+        <p>但是silverman是怎么写的呢？没有提第三点。当时想第三点想得很痛苦，即便感觉它很不重要trivial，仍总是想explicitly写出证明过程。</p>
+        <p>有时候就是这样，是可以以直觉进行理解，但还是想完成严密的论证。当明白论证方法后并不用多说什么，但很多时候人缺乏的是一套语言一个框架，以至于基础无聊的证明可以一次对很多不同的对象做完，这不算本质的创新，却是思维（和墨水）的减负了。</p>
+        
+    </body>
+
+</html>
